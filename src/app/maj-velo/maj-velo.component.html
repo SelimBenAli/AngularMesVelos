@@ -1,0 +1,43 @@
+<div class="container">
+  <div>
+    <h2>Modifier une Velo :</h2>
+  </div>
+  <form>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID Velo : </label>
+      <input readonly type="text" [(ngModel)]="veloActuelle.idVelo"
+             name="idVelo" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Model Velo : </label>
+      <input type="text" [(ngModel)]="veloActuelle.modelVelo"
+             name="modelVelo" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Marque Velo : </label>
+      <input type="text" [(ngModel)]="veloActuelle.marqueVelo"
+             name="marqueVelo" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Prix Velo : </label>
+      <input type="number" [ngModel]="veloActuelle.prixVelo"
+             (ngModelChange)="veloActuelle.prixVelo= $event"
+             name="prixVelo" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Type</label>
+      <select class="form-control form-control-lg" id="idType" name="idType"
+              [(ngModel)]="updatedTypeId">
+        <option *ngFor="let t of types" [value]="t.idType" >
+          {{t.nomType}}
+        </option>
+      </select>
+    </div>
+
+
+    <div class="mt-2">
+      <button type="submit" (click)="updateVelo()" class="btn btn-success">Modifier</button>
+    </div>
+  </form>
+</div>

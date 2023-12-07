@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table  class="table table-striped">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Model</th>
+          <th>Marque</th>
+          <th>Prix</th>
+          <th>Type</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let velo of velos">
+        <tr>
+          <td>{{velo.idVelo}}</td>
+          <td>{{velo.modelVelo}}</td>
+          <td>{{velo.marqueVelo}}</td>
+          <td>{{velo.prixVelo}}</td>
+          <td>{{velo.type?.nomType}}</td>
+          <td><a  *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/maj-velo',velo.idVelo]">Modifier</a></td>
+          <td><a  *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerVelo(velo)">Supprimer</a> </td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
